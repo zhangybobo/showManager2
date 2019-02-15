@@ -30,14 +30,15 @@
               const res=await this.axios.post('login',this.formdata)
               const {
                       data:{
-                           data:{token},
+                        //    data:{token}, 登录时。此时data的值为空
+                           data,
                            meta:{msg,status}
                       }
                       }=res
                   if (status === 200)
                   {
                     //第一个token是key，第二个token是value
-                    localStorage.setItem('token',token)
+                    localStorage.setItem('token',data.token)
                      this.$router.push({
                          name:'home'
                      })
