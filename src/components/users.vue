@@ -1,6 +1,7 @@
 <template>
 <el-card>
-    <CusBread level1="用户管理" level2="用户列表"></CusBread>
+    <cusBread level1="用户管理" level2="用户列表"></cusBread>
+    <!-- <cus-bread level1="用户管理" level2="用户列表"></cus-bread> -->
     <!-- 搜索 -->
     <!-- clearable加入这个属性就可以在输入内容后删除时，末尾处会直接有个叉号删除 -->
     <!-- clear是input的方法，清除输入框的内容时自动触发的 -->
@@ -257,8 +258,7 @@ export default {
         },
         async getUserData() {
             //   需要授权的 API ，必须在请求头中使用 Authorization 字段提供 token 令牌
-            const Askheader = localStorage.getItem("token");
-            this.axios.defaults.headers.common["Authorization"] = Askheader;
+          
             const res = await this.axios.get(
                 `users?query=${this.query}&pagenum=${this.pagenum}&pagesize=${
           this.pagesize

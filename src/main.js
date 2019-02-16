@@ -8,9 +8,8 @@ import 'element-ui/lib/theme-chalk/index.css'
 import '@/assets/css/base.css'
 import moment from 'moment'
 import CusBread from '@/components/cusBread.vue'
-import axios from 'axios'
-axios.defaults.baseURL = 'http://localhost:8888/api/private/v1/'
-Vue.prototype.axios = axios
+import HttpServer from '@/components/httpServer.js'
+Vue.use(HttpServer)
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 /* eslint-disable no-new */
