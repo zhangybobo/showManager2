@@ -1,10 +1,6 @@
 <template>
 <el-card>
-    <el-breadcrumb separator-class="el-icon-arrow-right" style="margin-bottom:20px">
-        <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-        <el-breadcrumb-item>用户管理</el-breadcrumb-item>
-        <el-breadcrumb-item>用户列表</el-breadcrumb-item>
-    </el-breadcrumb>
+    <CusBread level1="用户管理" level2="用户列表"></CusBread>
     <!-- 搜索 -->
     <!-- clearable加入这个属性就可以在输入内容后删除时，末尾处会直接有个叉号删除 -->
     <!-- clear是input的方法，清除输入框的内容时自动触发的 -->
