@@ -138,13 +138,12 @@ export default {
                 msg,
                 status
             } = res.data.meta;
-               console.log(this.currentID)
+            console.log(this.currentID)
             console.log(this.selectVal)
             //   console.log(res)
-            if (status === 200)
-            {
+            if (status === 200) {
                 this.$message.success(msg);
-                this.dialogFormVisibleChange=false
+                this.dialogFormVisibleChange = false
             }
         },
         async showDialogChangeRole(users) {
@@ -164,8 +163,8 @@ export default {
                 this.roles = data;
                 console.log(this.roles)
             }
-            const res2= await this.axios.get(`users/${users.id}`)
-            this.selectVal=res2.data.data.rid
+            const res2 = await this.axios.get(`users/${users.id}`)
+            this.selectVal = res2.data.data.rid
             console.log(res2.data.data.rid)
         },
         async changeUserstate(users) {
@@ -179,8 +178,14 @@ export default {
                 // console.log(users.mg_state);
             }
         },
-        showDialogeditUser(users) {
-            this.formdata = users;
+       async  showDialogeditUser(users) {
+
+            // this.formdata = user;
+            // 根源this.formdata(3个) = user;(7个数据)
+            // 解决方案this.formdata= 来源于自己的数据
+            //
+            const res = await this.axios.get(`users/${users.id}`);
+            this.formdata = res.data.data;
             this.dialogFormVisibleEdit = true
         },
         async editUser() {
@@ -258,7 +263,7 @@ export default {
         },
         async getUserData() {
             //   需要授权的 API ，必须在请求头中使用 Authorization 字段提供 token 令牌
-          
+
             const res = await this.axios.get(
                 `users?query=${this.query}&pagenum=${this.pagenum}&pagesize=${
           this.pagesize

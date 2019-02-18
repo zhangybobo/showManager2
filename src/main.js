@@ -10,7 +10,9 @@ import moment from 'moment'
 import CusBread from '@/components/cusBread.vue'
 import HttpServer from '@/components/httpServer.js'
 Vue.use(HttpServer)
-Vue.config.productionTip = false
+Vue.config.productionTip = false // 初始化项目时自带的
+// ElementUI其实是Vue插件,和VueRouter用法一样  Vue.use(名)
+// Vue插件的使用
 Vue.use(ElementUI)
 /* eslint-disable no-new */
 Vue.filter('fmtdat', (v) => {
